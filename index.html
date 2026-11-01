@@ -15,7 +15,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=El+Messiri:wght@400;500;600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
 <link rel="preload" href="assets/groom-head.webp" as="image">
+<link rel="preload" href="assets/groom-torso.webp" as="image">
 <link rel="preload" href="assets/bride-head.webp" as="image">
+<link rel="preload" href="assets/bride-torso.webp" as="image">
+<link rel="preload" href="assets/bouquet.webp" as="image">
 <style>
 :root{
   --ivory:#fbf7f0; --paper:#f4ecdf; --sand:#e9dcc6;
@@ -143,7 +146,7 @@ section,header{position:relative}
 /* ============ Portrait ============ */
 .portrait{text-align:center}
 .arch{position:relative;width:min(82vw,380px);margin:30px auto 0;padding:10px;border-radius:999px 999px 22px 22px;background:linear-gradient(135deg,#9b7738,#ecd59f 30%,#b38e4b 55%,#f3e2b5 75%,#9b7738);box-shadow:0 30px 60px -30px #6b4f2a99}
-.arch img{width:100%;aspect-ratio:2/3;object-fit:cover;object-position:50% 20%;border-radius:999px 999px 14px 14px;border:4px solid var(--ivory)}
+.arch img{display:block;width:100%;height:auto;aspect-ratio:5/6;object-fit:cover;object-position:50% 9%;border-radius:999px 999px 14px 14px;border:4px solid var(--ivory)}
 .arch::after{content:"♡";position:absolute;left:50%;bottom:-20px;translate:-50% 0;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:var(--forest);color:var(--gold-lt);font-size:20px;box-shadow:0 0 0 4px var(--ivory)}
 .caption{margin:34px 0 0;font:400 clamp(26px,6.5vw,34px) var(--ruqaa);color:var(--gold-dk)}
 
@@ -151,8 +154,8 @@ section,header{position:relative}
 .closing{text-align:center;padding:40px 0 90px}
 .closing .big{margin:10px 0 0;font:700 clamp(30px,7.5vw,44px)/1.5 var(--ruqaa);color:var(--gold-dk)}
 .closing .sub{margin:6px 0 0;font:400 22px var(--amiri);color:var(--muted)}
-.monogram{display:grid;place-items:center;width:110px;height:110px;margin:30px auto 0;border-radius:50%;border:1.5px solid var(--gold-lt);box-shadow:inset 0 0 0 6px var(--ivory),inset 0 0 0 7px #e6d3aa;font:700 34px var(--ruqaa);color:var(--gold-dk)}
-.monogram span{font-size:.5em;color:var(--rose);margin:0 4px}
+.monogram{display:flex;align-items:center;justify-content:center;width:110px;height:110px;margin:30px auto 0;border-radius:50%;border:1.5px solid var(--gold-lt);box-shadow:inset 0 0 0 6px var(--ivory),inset 0 0 0 7px #e6d3aa;font:700 30px var(--ruqaa);color:var(--gold-dk);white-space:nowrap}
+.monogram span{font-size:.5em;color:var(--rose);margin:0 5px;vertical-align:.15em}
 footer{position:relative;z-index:1;text-align:center;padding:0 0 110px;font-size:13px;color:var(--muted);opacity:.8}
 
 /* ============ Music button ============ */
@@ -177,43 +180,45 @@ html:not(.gated) .music{opacity:1;transform:none}
 .toast.show{opacity:1;translate:-50% 0}
 
 /* ============ The dancing couple (SVG) ============ */
-.scene .sway{transform-origin:290px 548px;animation:sway 2s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+.scene .sway{transform-origin:300px 548px;animation:sway 2s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-1.4deg)}50%{transform:rotate(1.4deg)}}
 .scene .bounce{animation:bounce .5s ease-in-out infinite}
+.scene .bounce2{animation:bounce .5s ease-in-out -.25s infinite}
 @keyframes bounce{50%{transform:translateY(-6px)}}
-.scene .leg-l{transform-origin:186px 425px;animation:step 1s ease-in-out infinite}
-.scene .leg-r{transform-origin:224px 425px;animation:step 1s ease-in-out -.5s infinite}
-@keyframes step{0%,50%,100%{transform:none}25%{transform:translateY(-7px) rotate(-3deg)}}
-.scene .head-g{transform-origin:205px 288px;animation:bobG 1s ease-in-out infinite}
-@keyframes bobG{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(5deg)}}
-.scene .head-b{transform-origin:346px 292px;animation:bobB 1s ease-in-out infinite}
-@keyframes bobB{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-5deg)}}
-.scene .skirt-stretch{transform-origin:346px 550px;animation:stretch .5s ease-in-out infinite}
-@keyframes stretch{50%{transform:scaleY(1.036)}}
-.scene .skirt-swish{transform-origin:346px 376px;animation:swish 1s ease-in-out infinite}
+.scene .leg-l{transform-origin:194px 430px;animation:step 1s ease-in-out infinite}
+.scene .leg-r{transform-origin:233px 430px;animation:step 1s ease-in-out -.5s infinite}
+@keyframes step{0%,50%,100%{transform:none}25%{transform:translateY(-8px) rotate(-3deg)}}
+.scene .head-g{transform-origin:203px 255px;animation:bobG 1s ease-in-out infinite}
+@keyframes bobG{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4.5deg)}}
+.scene .head-b{transform-origin:335px 286px;animation:bobB 1s ease-in-out infinite}
+@keyframes bobB{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-4.5deg)}}
+.scene .skirt-stretch{transform-origin:344px 548px;animation:stretch .5s ease-in-out infinite}
+@keyframes stretch{50%{transform:scaleY(1.035)}}
+.scene .skirt-swish{transform-origin:344px 400px;animation:swish 1s ease-in-out infinite}
 @keyframes swish{0%,100%{transform:skewX(-4deg)}50%{transform:skewX(4deg)}}
-.scene .veil-sway{transform-origin:330px 128px;animation:veil 2s ease-in-out -.3s infinite}
-@keyframes veil{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(2.5deg)}}
-/* 8s choreography: groom waves hello, then the bride waves her bouquet */
-.scene .arm-g{transform-origin:146px 322px;animation:armG 8s ease-in-out infinite}
-.scene .fore-g{transform-origin:146px 372px;animation:foreG 8s ease-in-out infinite}
-.scene .arm-b{transform-origin:386px 322px;animation:armB 8s ease-in-out infinite}
-.scene .fore-b{transform-origin:386px 370px;animation:foreB 8s ease-in-out infinite}
-.scene .bouquet{transform-origin:386px 420px;animation:bouq 8s ease-in-out infinite}
-@keyframes armG{0%{transform:rotate(95deg)}4%,44%{transform:rotate(150deg)}50%{transform:rotate(85deg)}
-  56.25%,68.75%,81.25%,93.75%,100%{transform:rotate(95deg)}62.5%,75%,87.5%{transform:rotate(75deg)}}
-@keyframes foreG{0%{transform:rotate(90deg)}4%,44%{transform:rotate(0deg)}
-  8%,16%,24%,32%{transform:rotate(28deg)}12%,20%,28%,36%{transform:rotate(-22deg)}40%{transform:rotate(18deg)}
-  50%{transform:rotate(100deg)}56.25%,68.75%,81.25%,93.75%{transform:rotate(80deg)}62.5%,75%,87.5%{transform:rotate(110deg)}100%{transform:rotate(90deg)}}
-@keyframes armB{0%,100%{transform:rotate(-25deg)}6.25%,18.75%,31.25%,43.75%{transform:rotate(-15deg)}12.5%,25%,37.5%{transform:rotate(-28deg)}46%{transform:rotate(-20deg)}52%,92%{transform:rotate(-150deg)}}
-@keyframes foreB{0%,46%,100%{transform:rotate(115deg)}52%,92%{transform:rotate(0deg)}
-  56%,64%,72%,80%{transform:rotate(-22deg)}60%,68%,76%,84%{transform:rotate(22deg)}88%{transform:rotate(-10deg)}}
-@keyframes bouq{0%,100%{transform:rotate(-90deg)}46%{transform:rotate(-95deg)}52%,92%{transform:rotate(150deg)}}
+.scene .veil-sway{transform-origin:400px 240px;animation:veil 2s ease-in-out -.3s infinite}
+@keyframes veil{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(2.4deg)}}
+/* 8s greeting: he waves hello first, then she waves the bouquet */
+.scene .arm-g{transform-origin:158px 288px;animation:armG 8s ease-in-out infinite}
+.scene .fore-g{transform-origin:158px 342px;animation:foreG 8s ease-in-out infinite}
+.scene .arm-b{transform-origin:392px 326px;animation:armB 8s ease-in-out infinite}
+.scene .fore-b{transform-origin:392px 378px;animation:foreB 8s ease-in-out infinite}
+.scene .bouquet{transform-origin:392px 417px;animation:bouq 8s ease-in-out infinite}
+@keyframes armG{0%,100%{transform:rotate(12deg)}5%,43%{transform:rotate(146deg)}50%{transform:rotate(12deg)}
+  56%,68%,80%,92%{transform:rotate(16deg)}62%,74%,86%{transform:rotate(7deg)}}
+@keyframes foreG{0%,100%{transform:rotate(-8deg)}5%,43%{transform:rotate(0deg)}
+  10%,18%,26%,34%{transform:rotate(26deg)}14%,22%,30%,38%{transform:rotate(-26deg)}
+  50%{transform:rotate(-8deg)}56%,68%,80%,92%{transform:rotate(-14deg)}62%,74%,86%{transform:rotate(-2deg)}}
+@keyframes armB{0%,100%{transform:rotate(13deg)}6%,18%,30%,42%{transform:rotate(16deg)}12%,24%,36%{transform:rotate(9deg)}
+  47%{transform:rotate(13deg)}54%,90%{transform:rotate(-52deg)}}
+@keyframes foreB{0%,47%,100%{transform:rotate(-6deg)}52%,90%{transform:rotate(4deg)}
+  58%,68%,78%{transform:rotate(14deg)}63%,73%,83%{transform:rotate(-6deg)}}
+@keyframes bouq{0%,47%,100%{transform:rotate(0deg)}54%,90%{transform:rotate(50deg)}}
 .scene .bub-g{transform-origin:156px 112px;animation:bubG 8s ease-in-out infinite}
 .scene .bub-b{transform-origin:398px 112px;animation:bubB 8s ease-in-out infinite}
-@keyframes bubG{0%{opacity:0;transform:scale(.5)}3%{opacity:1;transform:scale(1.08)}5%,42%{opacity:1;transform:scale(1)}46%,100%{opacity:0;transform:scale(.6)}}
-@keyframes bubB{0%,50%{opacity:0;transform:scale(.5)}53%{opacity:1;transform:scale(1.08)}55%,90%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(.6)}}
-.scene .heart{transform-origin:278px 232px;opacity:0;animation:rise 4s ease-out infinite}
+@keyframes bubG{0%{opacity:0;transform:scale(.5)}4%{opacity:1;transform:scale(1.08)}6%,42%{opacity:1;transform:scale(1)}46%,100%{opacity:0;transform:scale(.6)}}
+@keyframes bubB{0%,50%{opacity:0;transform:scale(.5)}54%{opacity:1;transform:scale(1.08)}56%,88%{opacity:1;transform:scale(1)}92%,100%{opacity:0;transform:scale(.6)}}
+.scene .heart{transform-origin:276px 284px;opacity:0;animation:rise 4s ease-out infinite}
 .scene .heart.h2{animation-name:riseL;animation-delay:-1.333s}
 .scene .heart.h3{animation-delay:-2.667s}
 @keyframes rise{0%{opacity:0;transform:translate(0,0) scale(.3)}12%{opacity:1;transform:translate(-3px,-16px) scale(1)}100%{opacity:0;transform:translate(16px,-150px) scale(.8)}}
@@ -251,7 +256,7 @@ html.render .scene-wrap{width:560px;margin:0;opacity:1;transform:none}
     <h2 class="gate-names">عبدالرحمن<span>&amp;</span>نادين</h2>
     <button class="envelope" id="openBtn" type="button" aria-label="افتح الدعوة">
       <span class="env-back"></span>
-      <span class="env-card"><b>مستنيينكم ♡</b><small>١٩ . ١١ . ٢٠٢٦</small></span>
+      <span class="env-card"><b>مستنيينكم ♡</b><small dir="ltr">19 / 11 / 2026</small></span>
       <span class="env-front"></span>
       <span class="env-flap"></span>
       <span class="seal">ع ن</span>
@@ -287,19 +292,12 @@ html.render .scene-wrap{width:560px;margin:0;opacity:1;transform:none}
           </linearGradient>
           <pattern id="pCurtain" width="26" height="600" patternUnits="userSpaceOnUse"><rect width="26" height="600" fill="url(#gFold)"/></pattern>
           <radialGradient id="gLight"><stop offset="0" stop-color="#fffbe9"/><stop offset=".3" stop-color="#ffe6a6" stop-opacity=".9"/><stop offset="1" stop-color="#ffd27a" stop-opacity="0"/></radialGradient>
-          <linearGradient id="gJacket" x1="0" x2="1"><stop offset="0" stop-color="#121014"/><stop offset=".42" stop-color="#2c2932"/><stop offset="1" stop-color="#121014"/></linearGradient>
+          <linearGradient id="gJacket" x1="0" x2="1"><stop offset="0" stop-color="#0d0908"/><stop offset=".42" stop-color="#271e1a"/><stop offset="1" stop-color="#0d0908"/></linearGradient>
           <linearGradient id="gSatin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#55505e"/><stop offset=".5" stop-color="#1b191e"/><stop offset="1" stop-color="#403b47"/></linearGradient>
-          <linearGradient id="gTrouser" x1="0" x2="1"><stop offset="0" stop-color="#0f0e11"/><stop offset=".5" stop-color="#26232b"/><stop offset="1" stop-color="#0f0e11"/></linearGradient>
+          <linearGradient id="gTrouser" x1="0" x2="1"><stop offset="0" stop-color="#0b0808"/><stop offset=".5" stop-color="#241c19"/><stop offset="1" stop-color="#0b0808"/></linearGradient>
           <linearGradient id="gDress" x1="0" x2="1"><stop offset="0" stop-color="#e2dcdd"/><stop offset=".28" stop-color="#faf8f7"/><stop offset=".5" stop-color="#fff"/><stop offset=".74" stop-color="#f6f2f1"/><stop offset="1" stop-color="#ddd5d6"/></linearGradient>
-          <linearGradient id="gSkirtShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#d6ccca" stop-opacity=".55"/></linearGradient>
-          <pattern id="pLace" width="24" height="24" patternUnits="userSpaceOnUse">
-            <g fill="none" stroke="#d2c9c4" stroke-width=".9">
-              <circle cx="12" cy="8.6" r="1.9"/><circle cx="15.2" cy="10.9" r="1.9"/><circle cx="14" cy="14.7" r="1.9"/><circle cx="10" cy="14.7" r="1.9"/><circle cx="8.8" cy="10.9" r="1.9"/>
-              <path d="M2 22q4-5 8-2M16 3q4 3 7-1"/>
-            </g>
-            <circle cx="12" cy="12" r="1.1" fill="#d6cdc8"/>
-            <circle r="1.3" fill="#ddd4cf"/><circle cx="24" r="1.3" fill="#ddd4cf"/><circle cy="24" r="1.3" fill="#ddd4cf"/><circle cx="24" cy="24" r="1.3" fill="#ddd4cf"/>
-          </pattern>
+          <linearGradient id="gSkirtShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#cfc4c1" stop-opacity=".42"/></linearGradient><linearGradient id="gArmShade" x1="0" x2="1"><stop offset="0" stop-color="#b9aaa5" stop-opacity=".38"/><stop offset=".4" stop-color="#fff" stop-opacity="0"/><stop offset=".8" stop-color="#fff" stop-opacity=".35"/></linearGradient>
+          <pattern id="pLace" width="112" height="112" patternUnits="userSpaceOnUse" patternTransform="rotate(9)"><image href="assets/lace.webp" x="0" y="0" width="112" height="112"/></pattern><pattern id="pLaceS" width="64" height="64" patternUnits="userSpaceOnUse" patternTransform="rotate(-14)"><image href="assets/lace.webp" x="0" y="0" width="64" height="64"/></pattern>
           <radialGradient id="gSkinG" cx=".4" cy=".35"><stop offset="0" stop-color="#efbf9d"/><stop offset="1" stop-color="#cf8f6b"/></radialGradient>
           <radialGradient id="gSkinB" cx=".4" cy=".35"><stop offset="0" stop-color="#f9d2ba"/><stop offset="1" stop-color="#e5a487"/></radialGradient>
           <clipPath id="cArch"><circle cx="280" cy="300" r="226"/></clipPath>
@@ -315,6 +313,7 @@ html.render .scene-wrap{width:560px;margin:0;opacity:1;transform:none}
           <symbol id="bud" viewBox="-6 -6 12 12">
             <circle r="2.2" fill="#fffdf6" stroke="#e5d8c2" stroke-width=".6"/><circle cx="3.6" cy="2.4" r="1.7" fill="#fffdf6" stroke="#e5d8c2" stroke-width=".5"/><circle cx="-3.2" cy="2.8" r="1.5" fill="#fffdf6" stroke="#e5d8c2" stroke-width=".5"/><circle cx="1" cy="-3.8" r="1.6" fill="#fffdf6" stroke="#e5d8c2" stroke-width=".5"/>
           </symbol>
+          <filter id="fSoft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.1"/></filter>
         </defs>
 
         <!-- backdrop + golden arch (like the photo) -->
@@ -374,118 +373,93 @@ html.render .scene-wrap{width:560px;margin:0;opacity:1;transform:none}
         </g>
 
         <!-- floor shadow -->
-        <ellipse cx="300" cy="547" rx="205" ry="15" fill="#d6c3a6" opacity=".45"/>
-        <ellipse cx="300" cy="545" rx="150" ry="9" fill="#bfa684" opacity=".35"/>
+        <ellipse cx="300" cy="549" rx="192" ry="15" fill="#d6c3a6" opacity=".45"/>
+        <ellipse cx="300" cy="547" rx="132" ry="9" fill="#bfa684" opacity=".35"/>
 
         <!-- hearts floating up between them -->
-        <path class="heart" d="M278 238c-7-6-12-10-7-15 3-3 7-1 7 2 0-3 4-5 7-2 5 5 0 9-7 15z" fill="#df9f98"/>
-        <path class="heart h2" d="M278 238c-7-6-12-10-7-15 3-3 7-1 7 2 0-3 4-5 7-2 5 5 0 9-7 15z" fill="#c9a55f"/>
-        <path class="heart h3" d="M278 238c-7-6-12-10-7-15 3-3 7-1 7 2 0-3 4-5 7-2 5 5 0 9-7 15z" fill="#e9b6ae"/>
+        <path class="heart" d="M276 290c-7-6-12-10-7-15 3-3 7-1 7 2 0-3 4-5 7-2 5 5 0 9-7 15z" fill="#df9f98"/>
+        <path class="heart h2" d="M276 290c-7-6-12-10-7-15 3-3 7-1 7 2 0-3 4-5 7-2 5 5 0 9-7 15z" fill="#c9a55f"/>
+        <path class="heart h3" d="M276 290c-7-6-12-10-7-15 3-3 7-1 7 2 0-3 4-5 7-2 5 5 0 9-7 15z" fill="#e9b6ae"/>
 
-        <!-- ================= The couple ================= -->
+        <!-- ================= the couple ================= -->
         <g class="sway">
+          <!-- veil, far behind -->
+          <g class="veil-sway">
+            <path d="M398 236C452 250 482 330 494 420 502 482 508 520 518 548H440C434 480 424 410 410 352 404 318 400 268 398 236Z" fill="#fff" fill-opacity=".6"/>
+            <path d="M398 236C452 250 482 330 494 420 502 482 508 520 518 548H440C434 480 424 410 410 352 404 318 400 268 398 236Z" fill="url(#pLace)" opacity=".55"/>
+            <path d="M398 236C452 250 482 330 494 420 502 482 508 520 518 548" fill="none" stroke="#e5dbcf" stroke-width="3.5" stroke-dasharray=".1 7" stroke-linecap="round"/>
+          </g>
+
           <!-- ===== Groom ===== -->
           <g id="groom">
-            <g class="leg-l">
-              <path d="M168 425H203L200 530H174Z" fill="url(#gTrouser)"/>
-              <path d="M171 428L176 528" stroke="#3b3741" stroke-width="2.5"/>
-              <path d="M174 525H201Q205 535 202 542H158Q159 533 174 525Z" fill="#0d0c0e"/>
-              <ellipse cx="171" cy="535" rx="7" ry="2.2" fill="#fff" opacity=".35"/>
-            </g>
-            <g class="leg-r">
-              <path d="M207 425H243L237 530H210Z" fill="url(#gTrouser)"/>
-              <path d="M240 428L234 528" stroke="#3b3741" stroke-width="2.5"/>
-              <path d="M209 525H236Q248 531 254 542H208Q206 533 209 525Z" fill="#0d0c0e"/>
-              <ellipse cx="240" cy="535" rx="7" ry="2.2" fill="#fff" opacity=".35"/>
-            </g>
             <g class="bounce">
-              <!-- arm around the bride (goes behind her) -->
-              <path d="M258 326Q284 352 300 392" fill="none" stroke="#19171c" stroke-width="28" stroke-linecap="round"/>
-              <!-- jacket -->
-              <path d="M183 293C165 296 146 302 140 318C136 350 140 395 146 438Q175 447 203 444H207Q235 447 264 438C270 395 274 350 270 318C264 302 245 296 227 293Z" fill="url(#gJacket)"/>
-              <path d="M183 293H227L205 394Z" fill="#141216"/>
-              <path d="M187 293H223L205 352Z" fill="#fbfaf7"/>
-              <circle cx="205" cy="319" r="1.8" fill="#1a181c"/><circle cx="205" cy="333" r="1.8" fill="#1a181c"/>
-              <circle cx="205" cy="364" r="2" fill="#45414d"/><circle cx="205" cy="378" r="2" fill="#45414d"/>
-              <path d="M184 294L204 390 168 336 160 318 176 315 180 300Z" fill="url(#gSatin)"/>
-              <path d="M226 294L206 390 242 336 250 318 234 315 230 300Z" fill="url(#gSatin)"/>
-              <circle cx="205" cy="397" r="3.6" fill="#3b3742" stroke="#58535f" stroke-width=".8"/>
-              <path d="M205 400L197 444H213Z" fill="#0c0b0e"/>
-              <path d="M232 347H252" stroke="#0a090b" stroke-width="3"/>
-              <path d="M234 347L238 338 242 344 246 337 250 347Z" fill="#fff"/>
-              <!-- neck filler + head -->
-              <path d="M187 262H222V300H187Z" fill="#c67f5a"/>
-              <g class="head-g">
-                <image href="assets/groom-head.webp" x="137" y="117" width="136" height="176"/>
+              <g class="leg-l">
+                <path d="M177 430H211L208 528H180Z" fill="url(#gTrouser)"/>
+                <path d="M181 434L186 526" stroke="#3a302b" stroke-width="2.5"/>
+                <path d="M180 522H208Q212 533 208 541H163Q164 531 180 522Z" fill="#0d0c0e"/>
+                <ellipse cx="176" cy="534" rx="7" ry="2.2" fill="#fff" opacity=".3"/>
               </g>
-              <!-- collar + bow tie -->
-              <path d="M185 282L204 302 188 309Z" fill="#fff" stroke="#e0dad2" stroke-width=".8"/>
-              <path d="M225 282L206 302 222 309Z" fill="#fff" stroke="#e0dad2" stroke-width=".8"/>
-              <path d="M205 304L184 294Q179 304 184 315Z" fill="#151316"/>
-              <path d="M205 304L226 294Q231 304 226 315Z" fill="#151316"/>
-              <path d="M187 298L200 303M223 298L210 303" stroke="#3d3943" stroke-width="1.6" stroke-linecap="round"/>
-              <rect x="200" y="299" width="10" height="10" rx="3" fill="#26232b"/>
+              <g class="leg-r">
+                <path d="M216 430H250L247 528H219Z" fill="url(#gTrouser)"/>
+                <path d="M246 434L242 526" stroke="#3a302b" stroke-width="2.5"/>
+                <path d="M219 522H247Q259 529 265 541H220Q216 531 219 522Z" fill="#0d0c0e"/>
+                <ellipse cx="248" cy="534" rx="7" ry="2.2" fill="#fff" opacity=".3"/>
+              </g>
+              <!-- lower jacket, sits under the photo torso so the hem blends -->
+              <path d="M164 388Q158 420 161 450H265Q268 420 262 388Z" fill="url(#gJacket)"/>
+              <path d="M213 396V452" stroke="#070505" stroke-width="2.2"/>
+              <path d="M166 392Q161 416 162 440" fill="none" stroke="#3b312c" stroke-width="1.4"/>
+              <path d="M260 392Q265 416 264 440" fill="none" stroke="#3b312c" stroke-width="1.4"/>
+              <!-- real torso: neck, collar, bow tie, waistcoat -->
+              <image href="assets/groom-torso.webp" x="152.1" y="216.3" width="119.9" height="195.6"/>
+              <!-- real head, nods on the real neck -->
+              <g class="head-g"><image href="assets/groom-head.webp" x="150" y="95" width="119.9" height="152.9"/></g>
               <!-- waving arm -->
               <g class="arm-g">
-                <path d="M146 322V372" stroke="#1d1b20" stroke-width="27" stroke-linecap="round"/>
+                <path d="M158 288V342" stroke="#191210" stroke-width="27" stroke-linecap="round"/>
+                <path d="M149 294V336" stroke="#352a25" stroke-width="2" stroke-linecap="round" opacity=".55"/>
                 <g class="fore-g">
-                  <path d="M146 372V410" stroke="#1d1b20" stroke-width="24" stroke-linecap="round"/>
-                  <rect x="134" y="409" width="24" height="8" rx="3" fill="#fbfaf7"/>
-                  <ellipse cx="146" cy="429" rx="10.5" ry="12.5" fill="url(#gSkinG)"/>
-                  <ellipse cx="156.5" cy="423" rx="4" ry="6.5" fill="#d99a77" transform="rotate(-20 156.5 423)"/>
-                  <path d="M140.5 437v3M145.5 438v3.4M150.5 437v3" stroke="#b97a59" stroke-width="1.2" stroke-linecap="round"/>
+                  <path d="M158 342V388" stroke="#191210" stroke-width="24" stroke-linecap="round"/>
+                  <rect x="146.5" y="385" width="23" height="8" rx="3" fill="#fbfaf7" transform="rotate(-7 158 389)"/>
+                  <circle cx="149" cy="391" r="1.3" fill="#cdbb95"/>
+                  <g transform="rotate(-12 158 404)">
+                    <path d="M149 396q9-4 18 0 3 10 1 17-2 6-10 6t-10-6q-2-7 1-17Z" fill="url(#gSkinG)"/>
+                    <ellipse cx="168.5" cy="402" rx="3.6" ry="6.2" fill="#e0a87f" transform="rotate(-22 168.5 402)"/>
+                    <path d="M152.5 412.5v4M157.5 413v4.4M162.5 412.5v4" stroke="#bd7f5d" stroke-width="1.1" stroke-linecap="round"/>
+                  </g>
                 </g>
               </g>
             </g>
           </g>
 
           <!-- ===== Bride ===== -->
-          <g id="bride">
-            <g class="bounce"><g class="veil-sway">
-              <path d="M318 132C382 118 432 206 452 326 466 416 478 494 500 548H414C406 470 398 382 382 296 370 232 352 172 318 132Z" fill="#fff" fill-opacity=".62"/>
-              <path d="M318 132C382 118 432 206 452 326 466 416 478 494 500 548H414C406 470 398 382 382 296 370 232 352 172 318 132Z" fill="url(#pLace)" opacity=".6"/>
-              <path d="M318 132C382 118 432 206 452 326 466 416 478 494 500 548" fill="none" stroke="#e5dbcf" stroke-width="4" stroke-dasharray=".1 7" stroke-linecap="round"/>
-            </g></g>
-            <g class="skirt-stretch"><g class="skirt-swish">
-              <path d="M318 372C300 412 266 472 240 542Q346 560 456 542C430 472 392 412 374 372Q346 381 318 372Z" fill="url(#gDress)"/>
-              <path d="M318 372C300 412 266 472 240 542Q346 560 456 542C430 472 392 412 374 372Q346 381 318 372Z" fill="url(#pLace)"/>
-              <path d="M318 372C300 412 266 472 240 542Q346 560 456 542C430 472 392 412 374 372Q346 381 318 372Z" fill="url(#gSkirtShade)"/>
-              <path d="M330 382C318 432 300 486 286 546M346 384C345 440 344 492 346 552M362 382C374 432 392 486 406 548" fill="none" stroke="#e2d9d6" stroke-width="2"/>
-              <path d="M244 541Q346 559 452 541" fill="none" stroke="#e7dfda" stroke-width="7" stroke-dasharray=".1 9" stroke-linecap="round"/>
-            </g></g>
-            <g class="bounce">
-              <!-- bodice -->
-              <path d="M330 292C318 296 306 302 302 318 302 340 312 360 318 378Q346 386 374 378C380 360 390 340 390 318 386 302 374 296 362 292Z" fill="url(#gDress)"/>
-              <path d="M330 292C318 296 306 302 302 318 302 340 312 360 318 378Q346 386 374 378C380 360 390 340 390 318 386 302 374 296 362 292Z" fill="url(#pLace)"/>
-              <path d="M318 377Q346 386 374 377" fill="none" stroke="#e0d6d2" stroke-width="2"/>
-              <!-- arm holding the groom -->
-              <path d="M307 322Q292 356 268 374" fill="none" stroke="#faf7f4" stroke-width="21" stroke-linecap="round"/>
-              <path d="M307 322Q292 356 268 374" fill="none" stroke="#e0d8d2" stroke-width="11" stroke-dasharray=".1 6" stroke-linecap="round"/>
-              <ellipse cx="262" cy="377" rx="9" ry="9.5" fill="url(#gSkinB)"/>
-              <!-- head -->
-              <g class="head-b">
-                <image href="assets/bride-head.webp" x="281" y="104" width="128" height="194"/>
-              </g>
-              <!-- arm with bouquet -->
+          <g id="bride" transform="translate(-13 0)">
+            <g class="bounce2">
+              <g class="skirt-stretch"><g class="skirt-swish">
+                <path d="M294 398C272 440 248 490 228 546Q342 562 462 546C442 490 418 440 396 398Q344 410 294 398Z" fill="#fdfbf9"/>
+                <path d="M294 398C272 440 248 490 228 546Q342 562 462 546C442 490 418 440 396 398Q344 410 294 398Z" fill="url(#pLace)"/>
+                <path d="M294 398C272 440 248 490 228 546Q342 562 462 546C442 490 418 440 396 398Q344 410 294 398Z" fill="url(#gSkirtShade)"/>
+                <path d="M306 408C294 452 278 500 266 550M330 412C326 462 322 506 324 552M358 412C364 462 368 506 366 552M384 408C396 452 412 500 424 550" fill="none" stroke="#e2d9d6" stroke-width="2"/>
+                <path d="M232 545Q344 562 458 545" fill="none" stroke="#e7dfda" stroke-width="7" stroke-dasharray=".1 9" stroke-linecap="round"/>
+              </g></g>
+              <!-- bodice, tucked under the photo torso -->
+              <path d="M271 364L296 416Q342 426 390 416L414 364Q344 380 271 364Z" fill="#fdfbf9"/>
+              <path d="M271 364L296 416Q342 426 390 416L414 364Q344 380 271 364Z" fill="url(#pLace)"/>
+              <path d="M294 411Q342 423 392 411L391 419Q342 431 295 419Z" fill="#f7f2ed"/>
+              <path d="M294 411Q342 423 392 411" fill="none" stroke="#dfd4cd" stroke-width="1"/>
+              <path d="M295 419Q342 431 391 419" fill="none" stroke="#dfd4cd" stroke-width="1"/>
+              <!-- real torso: hijab drape over the shoulders and the bodice -->
+              <image href="assets/bride-torso.webp" x="268" y="258.3" width="150" height="115.7"/>
+              <!-- real head -->
+              <g class="head-b"><image href="assets/bride-head.webp" x="282" y="137" width="117.8" height="151.4"/></g>
+              <!-- her far arm, waving the bouquet -->
               <g class="arm-b">
-                <path d="M386 322V370" stroke="#faf7f4" stroke-width="21" stroke-linecap="round"/>
-                <path d="M386 322V370" stroke="#e0d8d2" stroke-width="11" stroke-dasharray=".1 6" stroke-linecap="round"/>
+                <g class="sleeve"><rect x="381.5" y="320" width="21" height="62" rx="10.5" fill="#fdfbf9"/><rect x="381.5" y="320" width="21" height="62" rx="10.5" fill="url(#pLaceS)"/><rect x="381.5" y="320" width="21" height="62" rx="10.5" fill="url(#gArmShade)"/><rect x="381.5" y="320" width="21" height="62" rx="10.5" fill="none" stroke="#d9cdc8" stroke-width=".9" opacity=".7"/></g>
                 <g class="fore-b">
-                  <path d="M386 370V408" stroke="#faf7f4" stroke-width="19" stroke-linecap="round"/>
-                  <path d="M386 372V406" stroke="#e0d8d2" stroke-width="10" stroke-dasharray=".1 6" stroke-linecap="round"/>
+                  <g class="sleeve"><rect x="383.5" y="372" width="17" height="48" rx="8.5" fill="#fdfbf9"/><rect x="383.5" y="372" width="17" height="48" rx="8.5" fill="url(#pLaceS)"/><rect x="383.5" y="372" width="17" height="48" rx="8.5" fill="url(#gArmShade)"/><rect x="383.5" y="372" width="17" height="48" rx="8.5" fill="none" stroke="#d9cdc8" stroke-width=".9" opacity=".7"/></g>
                   <g class="bouquet">
-                    <path d="M380 424L383 448M386 424V450M392 424L389 448" stroke="#6f8656" stroke-width="2.6" stroke-linecap="round"/>
-                    <use href="#leaf" x="352" y="398" width="28" height="13" transform="rotate(-35 366 404)"/>
-                    <use href="#leaf" x="392" y="398" width="28" height="13" transform="rotate(35 406 404)"/>
-                    <use href="#leaf" x="364" y="380" width="22" height="10" transform="rotate(-70 375 385)"/>
-                    <use href="#rose" x="362" y="386" width="26" height="26"/>
-                    <use href="#rose" x="385" y="384" width="26" height="26"/>
-                    <use href="#rose" x="372" y="368" width="27" height="27"/>
-                    <use href="#rose" x="391" y="366" width="20" height="20"/>
-                    <use href="#bud" x="356" y="376" width="11" height="11"/><use href="#bud" x="404" y="392" width="11" height="11"/><use href="#bud" x="380" y="360" width="10" height="10"/><use href="#bud" x="364" y="404" width="10" height="10"/>
-                    <path d="M379 413H393V423H379Z" fill="#fffdf9" stroke="#e5dacb"/>
+                    <image href="assets/bouquet.webp" x="299.5" y="310" width="123" height="171"/>
                   </g>
-                  <ellipse cx="386" cy="420" rx="9.5" ry="10.5" fill="url(#gSkinB)"/>
                 </g>
               </g>
             </g>
@@ -520,7 +494,7 @@ html.render .scene-wrap{width:560px;margin:0;opacity:1;transform:none}
     <div class="wrap reveal">
       <svg class="divider" viewBox="0 0 180 24" aria-hidden="true"><path d="M0 12H70M110 12H180" stroke="currentColor"/><path d="M90 3l6 9-6 9-6-9z" fill="currentColor"/><circle cx="76" cy="12" r="2" fill="currentColor"/><circle cx="104" cy="12" r="2" fill="currentColor"/></svg>
       <p class="ayah">﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</p>
-      <p class="ref">سورة الروم · ٢١</p>
+      <p class="ref">سورة الروم — الآية ٢١</p>
     </div>
   </section>
 
@@ -587,7 +561,7 @@ html.render .scene-wrap{width:560px;margin:0;opacity:1;transform:none}
     </div>
   </section>
 </main>
-<footer>عبدالرحمن &amp; نادين · ١٩ . ١١ . ٢٠٢٦</footer>
+<footer>عبدالرحمن &amp; نادين — ١٩ نوفمبر ٢٠٢٦</footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script>
